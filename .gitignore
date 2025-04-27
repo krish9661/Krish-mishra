@@ -1,5 +1,2 @@
-project.css
-contact.css
-skills.css
-script.js
-home.css
+*.min.js
+*.min.css
