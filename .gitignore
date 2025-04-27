@@ -1,2 +1,5 @@
-*.min.js
-*.min.css
+/contact.css
+/home.css
+/project.css
+/script.js
+/skills.css
