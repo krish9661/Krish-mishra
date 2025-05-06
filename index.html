@@ -1,323 +1,257 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Krish | Portfolio</title>
-  <link rel="stylesheet" href="home.css" />
-  <link rel="stylesheet" href="contact.css" />
-  <link rel="stylesheet" href="project.css" />
-  <link rel="stylesheet" href="skills.css" />
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-  </script>
-  <script type="text/javascript">
-    (function(){
-        emailjs.init({
-          publicKey: "d6VENt6Y6IjsjW_7m",
-        });
-    })();
-  </script>
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="assets/css/styles.css">
 
-</head>
-<body>
-    <style>
-        section {
-            padding: 6rem 1.5rem 4rem;
-            scroll-margin-top: 5rem; /* avoids overlap by fixed navbar */
-            min-height: 100vh;
-            box-sizing: border-box;
-        }
-    </style>
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
-  <!-- 🔝 Fixed Navbar -->
-  <header class="navbar">
-    <div class="nav-logo">
-      <img src="image/Logo.png" alt="Krish Logo" />
-    </div>
-    <div class="nav-toggle" id="navToggle">&#9776;</div>
-    <nav class="nav-links" id="navLinks">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <!-- 👇 Main Sections -->
-  <main>
-
-    <!-- 🏠 Home -->
-    <section id="home" class="hero-section">
-        
-        <section class="hero" id="home">
-            <div class="hero-text">
-                <h1 class="anime-title">Hi, I'm <span>Krish</span></h1>
-                <p>Aspiring Developer | Designer | Creative Thinker</p>
-            </div>
-            <div class="hero-img">
-                <img src="image/Solo-Leveling-PNG.png" alt="Krish Character" />
-            </div>
-    </section>
-
-    <!-- 👨‍💻 About -->
-    <section id="about" class="about-page">
-        <h1 class="anime-title">About Me</h1>
-        <p class="about-intro">
-          I’m Krish — a passionate developer, anime enjoyer, and creative problem-solver.
-          From crafting clean UIs to diving into character-building code, I love mixing tech with imagination.
-        </p>
-    
-        <div class="about-boxes">
-          <div class="about-card">
-            <h3>🎓 Education</h3>
-            <p>B.Tech in Computer Science and Engineering</p>
-            <p>Jharkhand University of Technology, 2022–2026</p>
-          </div>
-    
-          <div class="about-card">
-            <h3>💡 Hobbies</h3>
-            <p>Watching anime, building projects, gaming, UI design</p>
-          </div>
-    
-          <div class="about-card">
-            <h3>⚡ Fun Fact</h3>
-            <p>I treat my projects like boss battles — and I don’t leave without a win.</p>
-          </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-  <section id="skills" class="skills-page">
-    <h1>My Skills</h1>
-    <div class="skills-grid" id="skillsGrid">
-      <!-- Skill cards will be inserted here by JavaScript -->
-      <div id="skillPopup" class="popup hidden">
-        <h2 id="popupSkillName">Skill</h2>
-        <br>
-        <p id="popupSkillLevel">Level</p>
-      </div>      
-    </div>
-  </section>
-  
-  <script>
-    const skills = [
-        { name: 'C Programming', level: 'Average' },
-        { name: 'Java', level: 'Pro' },
-        { name: 'HTML', level: 'Pro' },
-        { name: 'CSS', level: 'Pro' },
-        { name: 'JavaScript', level: 'Average' },
-        { name: 'MySQL', level: 'Beginner' },
-        { name: 'FIGMA', level: 'Average' },
-        { name: 'UI/UX', level: 'Average' },
-        { name: 'Spring Boot', level: 'Beginner' }
-    ];
-
-    const levelColors = {
-        Beginner: '#ff4b4b',
-        Average: '#ffd93d',
-        Pro: '#3cff7f'
-    };
-
-    const skillsGrid = document.getElementById('skillsGrid');
-
-    skills.forEach(skill => {
-    const card = document.createElement('div');
-    card.className = 'skill-card';
-
-    const levelColor = levelColors[skill.level];
-
-    card.innerHTML = `
-      <h3>${skill.name}</h3>
-      <div class="skill-details hidden">
-        <p class="level-text">${skill.level}</p>
-        <div class="xp-bar-container">
-          <div class="xp-bar" style="background-color: ${levelColor};"></div>
-        </div>
-      </div>
-    `;
-
-    card.addEventListener('click', () => {
-        // Close all others
-        document.querySelectorAll('.skill-card').forEach(c => {
-            c.classList.remove('active');
-            c.querySelector('.skill-details')?.classList.add('hidden');
-        });
-
-        // Toggle this one
-        card.classList.add('active');
-        card.querySelector('.skill-details').classList.remove('hidden');
-        });
-
-        skillsGrid.appendChild(card);
-    });
-</script>
-
-    <!-- 🧩 Projects -->
-    <section id="projects" class="projects-page">
-        <h1>My Projects</h1>
-        <div class="projects-grid">
-          <div class="project-card">
-            <img src="image/Screenshot 2025-04-11 014304.png" alt="Anime Blog Screenshot" class="project-thumb" />
-            <h2>Portfolio Website</h2>
-            <p>My personal portfolio designed in an anime-inspired style using HTML, CSS, and JavaScript.</p>
-            <a href="#" class="btn" target="_blank">View Project</a>
-          </div>
-    
-          <div class="project-card">
-            <img src="image/Screenshot 2024-06-21 130459 - Copy.png" alt="Anime Blog Screenshot" class="project-thumb" />
-            <h2>Recipe WebApp</h2>
-            <p>A platform for viewing recipe of different types of food items, built with resposive layout and design.</p>
-            <a href="https://github.com/krish9661/College-Mini-Project/blob/main/README.md" class="btn" target="_blank">View Project</a>
-          </div>
-    
-          <div class="project-card">
-            <img src="image/Screenshot 2025-04-22 214247.png" alt="Anime Blog Screenshot" class="project-thumb" />
-            <h2>Sign Language to text App</h2>
-            <p>Fetches real-time image, and process it with the Python model to determine text.</p>
-            <a href="https://github.com/krish9661/BhashaNayan/blob/main/README.md" class="btn" target="_blank">View Project</a>
-          </div>
-          
-          <div class="project-card">
-            <img src="image/Screenshot 2024-12-29 170221.png" alt="Anime Blog Screenshot" class="project-thumb" />
-            <h2>Java Bank Management System</h2>
-            <p>A Java based project for Atm, where you can make transactions and deposites which is built with Java Swing and Pure Java.</p>
-            <a href="https://github.com/krish9661/Banking-Simulator/blob/main/README.md" class="btn" target="_blank">View Project</a>
-          </div>
-    
-          <div class="project-card">
-            <img src="image/Screenshot 2025-04-23 010106.png" alt="Anime Blog Screenshot" class="project-thumb" />
-            <h2>CSS and JS art project</h2>
-            <p>Participation in contest organised by Dev.to.</p>
-            <a href="https://github.com/krish9661/WinterSolstice/tree/main" class="btn" target="_blank">View Project</a>
-          </div>
-        </div>
-
-    <!-- 📬 Contact -->
-    <section id="contact" class="contact-page">
-        <h1>Contact Me</h1>
-        <p class="contact-intro">Got a question, idea, or opportunity? I'm just a message away!</p>
-    
-        <div class="contact-content">
-            <div class="contact-left">
-              <form class="contact-form" id="emailForm">
-                <input type="text" name="from_name" placeholder="Your Name" required />
-                <input type="email" name="reply_to" placeholder="Your Email" required />
-                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit">Send Message</button>
-              </form>
-          
-              <div class="contact-info">
-                <p><strong>Email:</strong> krishmishra9661@gmail.com</p>
-                <p><strong>Phone:</strong> +91 7979853526</p>
-                <div class="contact-icons">
-                  <a href="https://github.com/" target="_blank">GitHub</a> |
-                  <a href="https://linkedin.com/" target="_blank">LinkedIn</a> |
-                  <a href="https://instagram.com/" target="_blank">Instagram</a>
+        <title>Portfolio responsive complete</title>
+    </head>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <a href="#" class="nav__logo">Krish Mishra</a>
                 </div>
-              </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                        <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <section class="home" id="home">
+                <div class="home__container bd-grid">
+                    <h1 class="home__title"><span>He<br>LLO.</span></h1>
+                    <p>Nice to meet you.</p>
+                    <div class="home__scroll">
+                        <a href="#about" class="home__scroll-link"><i class='bx bx-up-arrow-alt' ></i>Scroll down</a>
+                    </div>
+
+                    <img src="assets/image/Solo-Leveling-PNG.png" alt="" class="home__img">
+                </div>
+            </section>
+            
+            <!--===== ABOUT =====-->
+            <section class="about section" id="about">
+                <h2 class="section-title">About</h2>
+
+                <div class="about__container bd-grid">
+                    <div class="about__img">
+                        <img src="assets/image/Solo-Leveling-PNG-1 4.png" alt="">
+                    </div>
+
+                    <div>
+                        <h2 class="about__subtitle">I'am Krish Mishra</h2>
+                        <span class="about__profession">Aspiring Developer | Designer | Creative Thinker</span>
+                        <p class="about__text">A passionate developer, anime enjoyer, and creative problem-solver.
+                            From crafting clean UIs to diving into character-building code, I love mixing tech with imagination.</p>
+
+                        <div class="about__social">
+                            <a href= class="https://www.linkedin.com/in/krish-mishra-757851266/" class="about__social-icon"><i class='bx bxl-linkedin' ></i></a>
+                            <a href="https://github.com/krish9661" class="about__social-icon"><i class='bx bxl-github' ></i></a>
+                            <a href="#" class="about__social-icon"><i class='bx bxl-dribbble' ></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--===== SKILLS =====-->
+            <section class="skills section" id="skills">
+                <h2 class="section-title">Skills</h2>
+
+                <div class="skills__container bd-grid">
+                    <div class="skills__box">
+                        <h3 class="skills__subtitle">Development</h3>
+                        <span class="skills__name">Html</span>
+                        <span class="skills__name">Css</span>
+                        <span class="skills__name">Javascript</span>
+                        <span class="skills__name">Java</span>
+                        <span class="skills__name">Spring Boot</span>
+                        <span class="skills__name">MySQL</span>
+                        
+                        <h3 class="skills__subtitle">Design</h3>
+                        <span class="skills__name">Figma</span>
+                        <span class="skills__name">Canva</span>
+                        <span class="skills__name">Photoshop</span>
+
+                        <h3 class="skills__subtitle">Tools</h3>
+                        <span class="skills__name">Git</span>
+                        <span class="skills__name">Docker</span>
+                        <span class="skills__name">AWS</span>
+                    </div>
+
+                    <div class="skills__img">
+                        <img src="assets/img/skill.jpg" alt="">
+                    </div>
+                </div>
+            </section>
+
+            <!--===== PORTFOLIO =====-->
+            <section class="portfolio section" id="portfolio">
+                <h2 class="section-title">Projects</h2>
+
+                <div class="portfolio__container bd-grid">
+                    <div class="portfolio__img">
+                        <img src="assets/image/Screenshot 2025-04-11 014304.png" alt="">
+
+                        <div class="portfolio__link">
+                            <a href="#" class="portfolio__link-name">My personal portfolio designed in an anime-inspired style using HTML, CSS, and JavaScript.</a>
+                        </div>
+                    </div>
+                    <div class="portfolio__img">
+                        <img src="assets/image/Screenshot 2024-06-21 130459 - Copy.png" alt="">
+
+                        <div class="portfolio__link">
+                            <a href="https://github.com/krish9661/College-Mini-Project/blob/main/README.md" class="portfolio__link-name">A platform for viewing recipe of different types of food items, built with resposive layout and design.</a>
+                        </div>
+                    </div>
+                    <div class="portfolio__img">
+                        <img src="assets/image/Screenshot 2025-04-22 214247.png" alt="">
+
+                        <div class="portfolio__link">
+                            <a href="https://github.com/krish9661/BhashaNayan/blob/main/README.md" class="portfolio__link-name">Fetches real-time image, and process it with the Python model to determine text.</a>
+                        </div>
+                    </div>
+                    <div class="portfolio__img">
+                        <img src="assets/image/Screenshot 2024-12-29 170221.png" alt="">
+
+                        <div class="portfolio__link">
+                            <a href="https://github.com/krish9661/Banking-Simulator/blob/main/README.md" class="portfolio__link-name">A Java based project for Atm, where you can make transactions and deposites which is built with Java Swing and Pure Java.</a>
+                        </div>
+                    </div>
+                    <div class="portfolio__img">
+                        <img src="assets/image/Screenshot 2025-04-23 010106.png" alt="">
+
+                        <div class="portfolio__link">
+                            <a href="https://github.com/krish9661/WinterSolstice/tree/main" class="portfolio__link-name">Participation in contest organised by Dev.to.</a>
+                        </div>
+                    </div>
+                    <!-- <div class="portfolio__img">
+                        <img src="assets/image/Screenshot 2025-04-23 010106.png" alt="">
+
+                        <div class="portfolio__link">
+                            <a href="https://github.com/krish9661/WinterSolstice/tree/main" class="portfolio__link-name">View details</a>
+                        </div>
+                    </div> -->
+                </div>
+            </section>
+
+            <!--===== CONTACT =====-->
+            <section class="contact section" id="contact">
+                <h2 class="section-title">Contact</h2>
+            
+                <div class="contact__container bd-grid">
+                    <div class="contact__info">
+                        <h3 class="contact__subtitle">EMAIL</h3>
+                        <span class="contact__text">krishmishra9661@gmail.com</span>
+                
+                        <h3 class="contact__subtitle">PHONE</h3>
+                        <span class="contact__text">+91 7979853526</span>
+                
+                        <h3 class="contact__subtitle">ADDRESS</h3>
+                        <span class="contact__text">India</span>
+                
+                        <div class="speech-bubble" id="speechBubble" style="display:none;">Thanks, friend! I got your message! 🎊🎃🙇</div>
+                    </div>
+            
+                    <form id="emailForm" class="contact__form">
+                        <div class="contact__inputs">
+                        <input type="text" name="from_name" placeholder="Name" class="contact__input" required />
+                        <input type="email" name="reply_to" placeholder="Email" class="contact__input" required />
+                        </div>
+                
+                        <textarea name="message" cols="0" rows="10" class="contact__input" required></textarea>
+                
+                        <input type="submit" value="Send" class="contact__button">
+                    </form>
+                </div>
+            </section>
+  
+            <!-- EmailJS + Form Handling -->
+            <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+            <script>
+                (function(){
+                emailjs.init("d6VENt6Y6IjsjW_7m"); // Replace with your EmailJS public key
+                })();
+            
+                document.addEventListener("DOMContentLoaded", function () {
+                const contactForm = document.getElementById("emailForm");
+                const speechBubble = document.getElementById("speechBubble");
+            
+                contactForm.addEventListener("submit", function (e) {
+                    e.preventDefault();
+            
+                    emailjs.sendForm('service_yks6x9g', 'template_npnib9b', this)
+                        .then(() => {
+                        // ✅ Show confirmation
+                        speechBubble.style.display = "block";
+                        alert("✅ Message sent successfully! 🎉");
+
+                        // ⏱ Hide after delay
+                        setTimeout(() => {
+                            speechBubble.style.display = "none";
+                            contactForm.reset();
+                        }, 2500);
+                        }, (error) => {
+                        alert("❌ Failed to send message: " + error.text);
+                        });
+                    });
+                });
+            </script>
+  
+        <!--===== FOOTER =====-->
+        <footer class="footer section">
+            <div class="footer__container bd-grid">
+                <div class="footer__data">
+                    <h2 class="footer__title">KRISH MISHRA</h2>
+                    <p class="footer__text">I'm Krish Mishra and this is my personal website</p>
+                </div>
+
+                <div class="footer__data">
+                    <h2 class="footer__title">EXPLORE</h2>
+                    <ul>
+                        <li><a href="#home" class="footer__link">Home</a></li>
+                        <li><a href="#about" class="footer__link">About</a></li>
+                        <li><a href="#skills" class="footer__link">Skills</a></li>
+                        <li><a href="#portfolio" class="footer__link">Portfolio</a></li>
+                        <li><a href="#Contact" class="footer__link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__data">
+                    <h2 class="footer__title">FOLLOW</h2>
+                    <a href="https://github.com/krish9661" class="footer__social"><i class='bx bxl-github' ></i></a>
+                    <a href="https://www.linkedin.com/in/krish-mishra-757851266/" class="footer__social"><i class='bx bxl-linkedin' ></i></a>
+                    <a href="https://x.com/" class="footer__social"><i class='bx bxl-twitter' ></i></a>
+                </div>
+
+
             </div>
-          
-            <div class="contact-right">
-              <div class="anime-wrapper">
-                <img src="image/japanese-anime-character-portrait-man_d7PI6.png" alt="Anime Character" class="contact-anime" id="animeImage" />
-                <div class="speech-bubble" id="speechBubble">Thanks, friend! I got your message! 🎊🎃🙇</div>
-              </div>
-            </div>        
-          </div>
-          
-      </section>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-      const navToggle = document.getElementById("navToggle");
-      const navLinks = document.getElementById("navLinks");
-    
-      if (navToggle && navLinks) {
-        navToggle.addEventListener("click", () => {
-          navLinks.classList.toggle("show");
-        });
-    
-        navLinks.querySelectorAll("a").forEach(link => {
-          link.addEventListener("click", () => {
-            navLinks.classList.remove("show");
-          });
-        });
-      }
-    
-      // 🎌 Anime Speech Bubble on Submit
-      const contactForm = document.getElementById("emailForm");
-      const animeImage = document.getElementById("animeImage");
-      const speechBubble = document.getElementById("speechBubble");
-    
-      if (contactForm && animeImage && speechBubble) {
-        contactForm.addEventListener("submit", function (e) {
-          e.preventDefault();
+        </footer>
 
-          emailjs.sendForm('service_yks6x9g', 'template_npnib9b', this)
-            .then(() => {
-              animeImage.classList.add("anime-jump");
-              speechBubble.style.display = "block";
+        <!--===== SCROLL REVEAL =====-->
+        <script src="https://unpkg.com/scrollreveal"></script>
 
-              setTimeout(() => {
-                animeImage.classList.remove("anime-jump");
-                speechBubble.style.display = "none";
-                contactForm.reset();
-              }, 2500);
-            }, (error) => {
-              alert("Failed to send message: " + error.text);
-            });
-        });
-    
-        
-      }
-    });
-    
-    </script>
-
-<footer class="site-footer">
-    <div class="footer-container">
-      
-      <div class="footer-column">
-        <h3>KRISH</h3>
-        <p class="tagline">Building worlds with code & creativity 🌌</p>
-      </div>
-  
-      <div class="footer-column">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-  
-      <div class="footer-column">
-        <h4>Follow Me</h4>
-        <div class="social-links">
-          <a href="https://github.com/krish9661" target="_blank">GitHub</a>
-          <a href="https://linkedin.com/in/krish-mishra-757851266" target="_blank">LinkedIn</a>
-          <a href="https://instagram.com/" target="_blank">Instagram</a>
-        </div>
-      </div>
-  
-      <div class="footer-column">
-        <h4>Tech Stack</h4>
-        <p>HTML • CSS • JavaScript<br>Anime.js • EmailJS • 💻</p>
-      </div>
-    </div>
-  
-    <div class="footer-bottom">
-      <p>&copy; 2025 Krish Mishra. All rights reserved.</p>
-    </div>
-  </footer>
-  
-
-  </main>
-
-  <script src="script.js" defer></script>
-</body>
+        <!--===== MAIN JS =====-->
+        <script src="assets/js/main.js"></script>
+    </body>
 </html>
